@@ -1,24 +1,14 @@
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class Project4 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        File analyzerOutput = new File("output.txt");
-
-        try (Scanner inFile = new Scanner(analyzerOutput)) {
-
-            while (inFile.hasNextLine()) {
-                System.out.println(inFile.nextLine());
-            }
-
-            inFile.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        BufferedReader input = new BufferedReader(new FileReader(new File("input.txt")));
 
     }
 
