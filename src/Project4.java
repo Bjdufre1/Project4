@@ -6,7 +6,7 @@ public class Project4 {
 
     public static void main(String[] args) {
 
-        File analyzerOutput = new File("output.txt");
+        File analyzerOutput = new File("input.txt");
 
         try (Scanner inFile = new Scanner(analyzerOutput)) {
 
