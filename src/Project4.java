@@ -11,8 +11,10 @@ public class Project4 {
         try (Scanner inFile = new Scanner(analyzerOutput)) {
 
             while (inFile.hasNextLine()) {
-                System.out.println(inFile.next());
+                System.out.println(inFile.nextLine());
             }
+
+            inFile.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
