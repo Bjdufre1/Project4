@@ -19,6 +19,10 @@ public class Project4 {
         if(!(Integer.parseInt(br.readLine()) == 31)){
             throw new ParserError("beg needs to be followed by a left curly brace");
         }
+        String currentLine = "";
+        while((currentLine = br.readLine()).equals("}end")){
+
+        }
 
     }
 }
