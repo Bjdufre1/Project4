@@ -66,11 +66,56 @@ public class Project4 {
                             throw new ParserError("missing semicolon after assignment");
                         }
                         br.readLine();
+                        break;
 
+                    }
+                    case ("pnt"): {
+                        if(!(Integer.parseInt(br.readLine()) == 25)){
+                            throw new ParserError("pnt must be followed by a left paren");
+                        }
+                        br.readLine();
+                        leftParenCount++;
+                        int code = Integer.parseInt(br.readLine());
+                        if(code == 39){
+                            br.readLine();
+                            code = Integer.parseInt(br.readLine());
+                            br.readLine();
+                            while (code != 39){
+                                code = Integer.parseInt(br.readLine());
+                                br.readLine();
+                            }
+                            br.mark(1000);
+                            if(Integer.parseInt(br.readLine()) == 45){
+                                br.readLine();
+                                int hold = Integer.parseInt(br.readLine());
+                                if(hold != 11 && hold != 39){
+                                    throw new ParserError("Incorrect assignment for string");
+                                }
+                            }
+                            else {
+                                br.reset();
+                            }
+                        }
+                        else if(code == 11){
+                            br.readLine();
+                            if(Integer.parseInt(br.readLine()) == 45){
+                                br.readLine();
+                                int hold = Integer.parseInt(br.readLine());
+                                if(hold != 11 && hold != 39){
+                                    throw new ParserError("Incorrect assignment for string");
+                                }
+                            }
+                            else {
+                                br.reset();
+                            }
+                        }
+
+                        break;
                     }
 
                 }
             }
         }
     }
+
 }
