@@ -1,25 +1,24 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Project4 {
 
-    public static void main(String[] args) {
+    public static int leftParenCount = 0;
+    public static int rightParenCount = 0;
+    public static int leftCurlyCount = 0;
+    public static int rightCurlyCount = 0;
+    public static BufferedReader br;
 
-        File analyzerOutput = new File("input.txt");
+    public static void main(String[] args) throws IOException, ParserError {
 
-        try (Scanner inFile = new Scanner(analyzerOutput)) {
-
-            while (inFile.hasNextLine()) {
-                System.out.println(inFile.nextLine());
-            }
-
-            inFile.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        br = new BufferedReader(new FileReader(new File("input.txt")));
+        br.readLine();
+        if(!br.readLine().equals("beg")){
+            throw new ParserError("Program does not begin with a beg statement");
+        }
+        if(!(Integer.parseInt(br.readLine()) == 31)){
+            throw new ParserError("beg needs to be followed by a left curly brace");
         }
 
     }
-
 }
