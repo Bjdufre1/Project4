@@ -23,8 +23,9 @@ public class Project4 {
         int codeOfWord;
         String word;
         while((codeOfWord = Integer.parseInt(br.readLine())) != -1){
+            word = br.readLine();
 
-        }
+            }
 
     }
 }
