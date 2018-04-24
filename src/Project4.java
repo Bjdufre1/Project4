@@ -88,9 +88,10 @@ public class Project4 {
                             if(Integer.parseInt(br.readLine()) == 45){
                                 br.readLine();
                                 int hold = Integer.parseInt(br.readLine());
-                                if(hold != 11 && hold != 39){
+                                if(!(hold == 11 || hold == 39)){
                                     throw new ParserError("Incorrect assignment for string");
                                 }
+                                br.readLine();
                             }
                             else {
                                 br.reset();
@@ -101,9 +102,10 @@ public class Project4 {
                             if(Integer.parseInt(br.readLine()) == 45){
                                 br.readLine();
                                 int hold = Integer.parseInt(br.readLine());
-                                if(hold != 11 && hold != 39){
+                                if(!(hold == 11 || hold == 39)){
                                     throw new ParserError("Incorrect assignment for string");
                                 }
+                                br.readLine();
                             }
                             else {
                                 br.reset();
