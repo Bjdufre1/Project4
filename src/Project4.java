@@ -28,6 +28,18 @@ public class Project4 {
             if(codeOfWord == 42){
                 br.readLine();
             }
+            else if(codeOfWord == 25){
+                leftParenCount++;
+            }
+            else if(codeOfWord == 26){
+                rightParenCount++;
+            }
+            else if(codeOfWord == 31){
+                leftCurlyCount++;
+            }
+            else if(codeOfWord == 32){
+                rightCurlyCount++;
+            }
             if(codeOfWord == 41){
                 switch (word){
 
@@ -116,6 +128,7 @@ public class Project4 {
                         if(num == 26){
                             rightParenCount++;
                         }
+                        br.readLine();
                         int number = Integer.parseInt(br.readLine());
                         if(number != 36){
                             throw new ParserError("Not ended with semicolon");
@@ -124,6 +137,41 @@ public class Project4 {
 
                         break;
                     }
+                    case ("if") :
+                        if(!(Integer.parseInt(br.readLine()) == 25)){
+                            throw new ParserError("if must be followed by a left paren");
+                        }
+                        br.readLine();
+                        leftParenCount++;
+                        int hold = Integer.parseInt(br.readLine());
+                        if(!(hold == 11 || hold == 10)){
+                            throw new ParserError("if statement must contain variable or literal");
+                        }
+                        br.readLine();
+                        hold = Integer.parseInt(br.readLine());
+                        if(!(hold == 29 || hold == 30 || hold == 27)){
+                            throw new ParserError("if statement must be less than, greater than, equals, or a boolean");
+                        }
+                        br.readLine();
+                        hold = Integer.parseInt(br.readLine());
+                        if(!(hold == 11 || hold == 10)) {
+                            throw new ParserError("if statement must contain variable or literal after operand");
+                        }
+                        br.readLine();
+                        int num = Integer.parseInt(br.readLine());
+                        if(num == 26){
+                            rightParenCount++;
+                        }
+                        br.readLine();
+                        num = Integer.parseInt(br.readLine());
+                        if(num == 31){
+                            leftCurlyCount++;
+                        }
+                        else {
+                            throw new ParserError("if must end with a curly");
+                        }
+                        br.readLine();
+
 
                 }
             }
