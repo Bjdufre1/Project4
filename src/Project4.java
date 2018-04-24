@@ -40,6 +40,13 @@ public class Project4 {
             else if(codeOfWord == 32){
                 rightCurlyCount++;
             }
+            else if(codeOfWord == 11){
+                int hold = Integer.parseInt(br.readLine());
+                if(hold != 27){
+                    throw new ParserError("Hanging variable");
+                }
+                br.readLine();
+            }
             if(codeOfWord == 41){
                 switch (word){
 
@@ -176,6 +183,13 @@ public class Project4 {
                 }
             }
         }
+        if(leftCurlyCount != rightCurlyCount){
+            throw new ParserError("Curly braces do not match");
+        }
+        if(rightParenCount != leftParenCount){
+            throw new ParserError("Parenthesis do not match");
+        }
+        System.out.println("No errors detected");
     }
 
 }
