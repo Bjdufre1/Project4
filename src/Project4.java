@@ -99,6 +99,7 @@ public class Project4 {
                         }
                         else if(code == 11){
                             br.readLine();
+                            br.mark(1000);
                             if(Integer.parseInt(br.readLine()) == 45){
                                 br.readLine();
                                 int hold = Integer.parseInt(br.readLine());
@@ -111,6 +112,15 @@ public class Project4 {
                                 br.reset();
                             }
                         }
+                        int num = Integer.parseInt(br.readLine());
+                        if(num == 26){
+                            rightParenCount++;
+                        }
+                        int number = Integer.parseInt(br.readLine());
+                        if(number != 36){
+                            throw new ParserError("Not ended with semicolon");
+                        }
+                        br.readLine();
 
                         break;
                     }
