@@ -19,13 +19,15 @@ public class Project4 {
         if(!(Integer.parseInt(br.readLine()) == 31)){
             throw new ParserError("beg needs to be followed by a left curly brace");
         }
+        br.readLine();
         leftCurlyCount++;
         int codeOfWord;
         String word;
         while((codeOfWord = Integer.parseInt(br.readLine())) != -1){
             word = br.readLine();
-
+            if(codeOfWord == 42){
+                br.readLine();
             }
-
+        }
     }
 }
