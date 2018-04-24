@@ -1,3 +1,4 @@
+import javax.swing.text.html.parser.Parser;
 import java.io.*;
 
 public class Project4 {
@@ -83,6 +84,7 @@ public class Project4 {
                             throw new ParserError("Missing semicolon after assignment");
                         }
                         br.readLine();
+                        hasEnd = false;
                         break;
 
                     }
@@ -136,7 +138,7 @@ public class Project4 {
                             throw new ParserError("Not ended with semicolon");
                         }
                         br.readLine();
-
+                        hasEnd = false;
                         break;
                     }
                     case ("if"): {
@@ -172,12 +174,66 @@ public class Project4 {
                             throw new ParserError("if must end with a curly");
                         }
                         br.readLine();
+                        hasEnd = false;
                         break;
                     }
 
                     case ("end"): {
                         hasEnd = true;
                         break;
+                    }
+
+                    case ("whl") : {
+                        if(!(Integer.parseInt(br.readLine()) == 25)){
+                            throw new ParserError("whl must be followed by a left paren");
+                        }
+                        br.readLine();
+                        leftParenCount++;
+                        int hold = Integer.parseInt(br.readLine());
+                        if(!(hold == 11 || hold == 10)){
+                            throw new ParserError("Incorrect whl statement");
+                        }
+                        br.readLine();
+                        if(Integer.parseInt(br.readLine()) == 26){
+                            rightParenCount++;
+                        }
+                        br.readLine();
+                        if(Integer.parseInt(br.readLine()) == 31){
+                            leftCurlyCount++;
+                        }
+                        br.readLine();
+                        break;
+                    }
+
+                    case ("str"): {
+
+                        if (!(Integer.parseInt(br.readLine()) == 11)) {
+                            throw new ParserError("str must be followed by an identifier");
+                        }
+                        br.readLine();
+                        if (!(Integer.parseInt(br.readLine()) == 27)) {
+                            throw new ParserError("str must be assigned on declaration");
+                        }
+                        br.readLine();
+                        int hold = Integer.parseInt(br.readLine());
+                        if (!(hold == 39) || (hold == 11)) {
+                            throw new ParserError("Incorrect assignment for str");
+                        }
+                        br.readLine();
+                        if(hold == 39){
+                            int code = Integer.parseInt(br.readLine());
+                            br.readLine();
+                            while (code != 39) {
+                                code = Integer.parseInt(br.readLine());
+                                br.readLine();
+                            }
+                        }
+                        hold = Integer.parseInt(br.readLine());
+                        br.readLine();
+                        if(hold != 36){
+                            throw new ParserError("Semicolon missing");
+                        }
+
                     }
                 }
             }
@@ -189,9 +245,8 @@ public class Project4 {
             throw new ParserError("Parenthesis do not match");
         }
         if(!hasEnd) {
-            throw new ParserError("No end statement");
+            throw new ParserError("No end statement or end statement not in correct place");
         }
         System.out.println("Parser Check Passed");
     }
-
 }
